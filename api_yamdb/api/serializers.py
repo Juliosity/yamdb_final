@@ -15,11 +15,7 @@ class AdminSerializer(
 
     class Meta:
         model = User
-        fields = (
-            'username', 'email',
-            'first_name', 'last_name',
-            'bio', 'role'
-        ) # ('__all__',)
+        fields = ('__all__',)
 
 
 class TokenSerializer(
@@ -39,11 +35,13 @@ class SignUpSerializer(
     serializers.Serializer, UsernameValidatorMixin
 ):
     email = serializers.EmailField(
-        required=True
-    ) # max_length= из модели
+        required=True,
+        max_length=settings.USER_EMAIL_LENGTH
+    )
     username = serializers.CharField(
-        required=True
-    ) # max_length= из модели
+        required=True,
+        max_length=settings.USER_NAMES_LENGTH
+    )
 
 
 class UserSerializer(AdminSerializer):

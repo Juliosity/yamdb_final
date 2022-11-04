@@ -7,7 +7,6 @@ from .validators import (
     UsernameValidatorMixin, DynamicMaxYearValidator,
     current_year
 )
-#from .utils import ADMIN, MODERATOR, USER
 
 USER = 'user'
 ADMIN = 'admin'
@@ -66,7 +65,6 @@ class User(AbstractUser):
     def is_admin(self):
         return (
             self.role == ADMIN
-           # or self.is_superuser
             or self.is_staff
         )
 

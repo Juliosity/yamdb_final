@@ -44,7 +44,6 @@ class UserViewSet(viewsets.ModelViewSet):
         detail=False
     )
     def get_your_info(self, request):
-       # serializer = UserSerializer(instance=request.user)
         if request.method == 'PATCH':
             serializer = UserSerializer(
                 instance=request.user,
@@ -69,20 +68,16 @@ class UserSignupViewSet(views.APIView):
                 username=username, email=email
             )
         except IntegrityError:
-            field = 'username' if User.objects.filter(username=username).exists() else 'email'
+            field = ('username'
+                     if User.objects.filter(username=username).exists() else
+                     'email'
+                     )
             return Response(
-                SIGNUP_ERROR.format(value=serializer.validated_data.get(field), field=field),
+                SIGNUP_ERROR.format(
+                    value=serializer.validated_data.get(field), field=field
+                ),
                 status=status.HTTP_400_BAD_REQUEST
             )
-            # if User.objects.filter(username=username).exists():
-            #     return Response(
-            #         SIGNUP_ERROR.format(value=username, field='username'),
-            #         status=status.HTTP_400_BAD_REQUEST
-            #     )
-            # return Response(
-            #     SIGNUP_ERROR.format(value=email, field='email'),
-            #     status=status.HTTP_400_BAD_REQUEST
-            # ) # Лишнее дублирование в строках 72..75 и 76..79.
         user.confirmattion_code = uuid.uuid4()
         user.save()
         email_text = (
@@ -120,15 +115,9 @@ class TokenViewSet(views.APIView):
                 status=status.HTTP_200_OK)
         return Response(
             data={'token': 'Не верный токен'},
-            #А как код инвалидировать? Где он задаётся?
             status=status.HTTP_400_BAD_REQUEST
         )
-# Дыра в безопасности!
-# Так как сервер отвечает "мимо" при любом числе попыток, можно устроить перебор до угадывания.
-# Да, сейчас угадать uuid() не реально. 
-# Но! Этот контроллер не знает какая сложность у пин-кода.
-# Есть вероятность, что сложность будет сокращена, например, чтобы пересылать не почтой, а СМСками (как от банков).
-# Лучше сделать пин-код одноразовым.
+
 
 class TitleViewSet(viewsets.ModelViewSet):
     queryset = Title.objects.annotate(
