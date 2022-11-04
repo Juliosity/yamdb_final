@@ -3,10 +3,8 @@ from django.contrib.auth.models import AbstractUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
-from .validators import (
-    UsernameValidatorMixin, DynamicMaxYearValidator,
-    current_year
-)
+from .validators import (DynamicMaxYearValidator, UsernameValidatorMixin,
+                         current_year)
 
 USER = 'user'
 ADMIN = 'admin'
