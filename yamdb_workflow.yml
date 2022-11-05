@@ -52,7 +52,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
-          sudo docker pull juliosity/yamdb_final
+          sudo docker pull juliosity/yamdb_final:latest
           sudo docker-compose stop
           sudo docker-compose rm web
           touch .env
