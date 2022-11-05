@@ -7,7 +7,7 @@ from django.utils import timezone
 
 class UsernameValidatorMixin:
     @classmethod
-    def validate_username(self, value):
+    def validate_username(cls, value):
         if value.lower() == 'me':
             raise ValidationError(
                 message=f'Ник {value} запрещен'
