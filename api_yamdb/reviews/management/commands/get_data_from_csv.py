@@ -1,9 +1,9 @@
 import csv
 
 from django.core.management.base import BaseCommand
+from reviews.models import Category, Comment, Genre, Review, Title, User
 
 from api_yamdb.settings import STATICFILES_DIRS
-from reviews.models import Category, Comment, Genre, Review, Title, User
 
 SIMPLE_MODELS = {
     User: 'users.csv',

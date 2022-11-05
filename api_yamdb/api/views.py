@@ -5,7 +5,6 @@ from django.core.mail import EmailMessage
 from django.db import IntegrityError
 from django.db.models import Avg
 from django.shortcuts import get_object_or_404
-
 from rest_framework import status, views, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
@@ -17,10 +16,10 @@ from .filter import TitleFilter
 from .mixins import WorkingWithListViewSet
 from .permissions import (AdminOnly, IsAdminOrReadOnly,
                           IsModeratorAuthorOrReadOnly)
-from .serializers import (
-    AdminSerializer, CategorySerializer, CommentSerializer, GenreSerializer,
-    ReviewSerializer, SignUpSerializer, TitlePostSerializer, TitleSerializer,
-    TokenSerializer, UserSerializer)
+from .serializers import (AdminSerializer, CategorySerializer,
+                          CommentSerializer, GenreSerializer, ReviewSerializer,
+                          SignUpSerializer, TitlePostSerializer,
+                          TitleSerializer, TokenSerializer, UserSerializer)
 
 SIGNUP_ERROR = '{value} уже занят. Используйте другой {field}.'
 
