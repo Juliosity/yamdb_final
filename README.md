@@ -69,6 +69,11 @@ docker-compose exec web python manage.py collectstatic --no-input
 docker-compose exec web python manage.py loaddata fixtures.json
 ```
 
+### Сервер проекта
+```bash
+http://84.201.139.243/api/v1/titles/
+```
+
 Команда разработки:
 #### [Ярослав Филиппов](https://github.com/PhilYaren)
 #### [Юлия Суркова](https://github.com/Juliosity)

@@ -84,6 +84,7 @@ DATABASES = {
 DATABASES['default'] = DATABASES['dev' if DEBUG else 'production']
 
 
+
 # Password validation
 
 AUTH_PASSWORD_VALIDATORS = [
