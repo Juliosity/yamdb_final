@@ -30,7 +30,7 @@ services:
       - static_value:/var/html/static/
       - media_value:/var/html/media/
       - ./data/certbot/conf:/etc/letsencrypt/:ro
-      - ./data/certbot/www:/var/www/certbot/::ro
+      - ./data/certbot/www:/var/www/certbot/:ro
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     depends_on:
       - web
