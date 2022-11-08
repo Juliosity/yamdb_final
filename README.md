@@ -36,7 +36,6 @@ DB_HOST=db
 DB_PORT=5432
 SECRET_KEY=secretkey
 ```
-
 ### Запуск приложения в контейнерах
 
 Запуск docker-compose:
