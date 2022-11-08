@@ -5,13 +5,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.getenv('SECRET_KEY', default='secretkey')
 
-# DEBUG = False
 # DEBUG = bool(os.environ.get('DJANGO_DEBUG', True) == 'False')
-DEBUG = os.getenv('DEBUG', False)
 
-# ALLOWED_HOSTS = ['*']
+DEBUG = os.getenv('DEBUG', default=False)
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='HOST')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='*')
 
 # ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
