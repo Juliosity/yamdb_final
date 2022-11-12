@@ -69,7 +69,7 @@ docker-compose exec web python manage.py loaddata fixtures.json
 
 ### Сервер проекта
 ```bash
-http://theorell.zapto.org//admin
+https://theorell.zapto.org/redoc/
 ```
 
 Команда разработки:
