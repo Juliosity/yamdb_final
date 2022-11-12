@@ -69,7 +69,7 @@ docker-compose exec web python manage.py loaddata fixtures.json
 
 ### Сервер проекта
 ```bash
-https://thejuliosity.gotdns.ch/admin
+http://theorell.zapto.org//admin
 ```
 
 Команда разработки:
